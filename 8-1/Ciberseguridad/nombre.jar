@@ -1,0 +1,7 @@
+public class Nombre_Clase
+{
+     public static void main (String args[])
+     {
+        //bloque de sentencias;
+     }
+}

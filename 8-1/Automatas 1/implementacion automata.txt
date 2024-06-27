@@ -1,0 +1,56 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+bool final(int estado){
+    if ( estado == 1)
+        return 1;
+        
+    return 0; 
+}
+
+int delta(int q, char a) {
+ 
+    switch(q) {
+        case 0:
+            if(a=='a') {
+                return 0;
+            } else if(a=='b') {
+                return 1;
+            }
+            break;
+        case 1:
+            if(a=='a') {
+                return 0;
+            } else if(a=='b') {
+                return 1;
+            }
+            break;
+
+    }
+    return -1;
+}
+ 
+int deltaExtendida( int estado, string cadena){
+    cout<< estado; 
+    for(int i=0; i<cadena.length(); i++) {
+        estado = delta(estado, cadena[i]);
+        cout<<"/" <<estado; 
+    }
+    return estado; 
+}
+
+int main() {
+
+    int estado = deltaExtendida(0, "bab");
+ 
+    if (final(estado)) {
+        cout<<"  aceptada";
+    }  else {
+        cout<<"  no aceptada";
+    }
+    return 0;
+}
+
+
