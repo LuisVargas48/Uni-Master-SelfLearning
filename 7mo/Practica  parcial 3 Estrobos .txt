@@ -1,0 +1,42 @@
+Ljmp inicio 
+
+inicio mov a,#00h
+       mov p0,a
+       mov p1,a
+       mov p3,a
+       mov a,#0ffh
+       mov p2,a
+       Ljmp begin 
+
+begin  mov a,p2
+otraA  cjne a,#02h,otraB
+       Ljmp rutina0
+
+otraB  cjne a,#01h,otraC
+       Ljmp rutina1
+
+otraC cjne a,#03h,begin
+      Ljmp rutina3
+
+
+
+rutina0 mov a,#00h
+        mov p1,a
+        mov p3,a
+        mov p0,a
+        Lcall tiempo
+        mov a,#0ffh
+        mov p0,a
+        Ljmp begin
+
+
+
+tiempo mov R0,#0ffh
+
+tiempo1 djnz R0,tiempo1
+tiempo2 mov R1#0ffh
+        djnz R1,tiempo1
+        mov R2, #08h
+        djnz R2, tiempo1
+        ret
+        end
