@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Docut</title>
+</head>
+
+<body>
+    <h1></h1>
+    <canvas width="320" height="250" style="border: 1px solid #000000;"></canvas>
+</body>
+
+<script>
+    let Circles = (Math.random() * 200);
+    let color = ['aqua', 'black', 'blue', 'fuchsia', 'gray', 'green', 'lime', 'maroon', 'navy', 'olive', 'orange', 'purple', 'red', 'silver', 'teal', 'white', 'yellow'];
+    let arte = document.querySelector("canvas");
+    let context = arte.getContext("2d");
+    let x, radio, y;
+    context.fillStyle = color[parseInt(((Math.random() * 18) + 1))];
+    context.fillRect(0, 0, 320, 260);
+
+    for (let i = 0; i < Circles; i++) {
+        dibujar();
+    }
+
+    function dibujar() {
+        let RandColor = parseInt((Math.random() * 17) + 1);
+        console.log(RandColor);
+        x = ((Math.random() * 320) + 1);
+        radio = ((Math.random() * 15) + 1);
+        y = ((Math.random() * 260) + 1);
+        yf = ((Math.random() * 30) + 1);
+
+        context.beginPath();
+        context.arc(x, y, radio, 0, Math.PI * 2);
+        context.fillStyle = color[RandColor];
+        context.fill();
+        context.closePath();
+
+    }
+
+</script>
+
+</html>

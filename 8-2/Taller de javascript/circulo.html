@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+ 
+<html>
+    <body>
+ 
+        <canvas id='canvas' width='2500' height='200'>
+        </canvas>
+        <p id='texto'></p>
+        <script>
+            var canvas = document.getElementById('canvas');
+            var ctx = canvas.getContext('2d');
+            var i = 0;
+ 
+            ctx.fillStyle="red";
+            ctx.strokeStyle="black";
+ 
+            function dibuja(){
+                ctx.beginPath();
+                ctx.lineWidth = 5;
+                ctx.arc(20 , 150,  // centro
+                        15,                  // radio
+                        0, Math.PI * i,      // angulos inicial y final
+                        false);              // contrario manecillas
+                document.getElementById('texto').innerHTML += "<br>" + "Angulo final: " + Math.round(i*100)/100 + ' \u03C0';
+                ctx.stroke();
+                ctx.fill();
+                i += 0.2
+                if (i > 2){
+                    acabar();
+                }
+            }
+ 
+            var temporizador=setInterval(function(){dibuja()},80);
+            function acabar(){
+                clearInterval(temporizador); // Paramos la ejecución del método, indicando la variable creada al final
+            }
+            document.close();
+        </script>
+ 
+    </body>
+</html>

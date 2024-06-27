@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora integradora</title>
+</head>
+
+<body class="calculadora">
+
+    <p>ingresa los valores para las operaciones</p>
+    <p>primer valor:</p> <input type="text" id="num1"> <br>
+    <p>segundo valor:</p> <input type="text" id="num2"> <br> <br>
+
+    <button style="height:35px;width:35px" id="suma" onclick="suma()"> + </button>
+    <button style="height:35px;width:35px" id="resta" onclick="resta()"> - </button>
+    <button style="height:35px;width:35px" id="multiplicacion" onclick="multiplicacion()"> x </button>
+    <button style="height:35px;width:35px" id="division" onclick="division()"> / </button>
+
+    <p>Resultado:</p>
+    <input type="text" readonly id="resultado">
+
+</body>
+
+<script>
+    
+
+    function multiplicacion() {
+        let num1 = document.getElementById('num1').value;
+        let num2 = document.getElementById('num2').value;
+        let res = 0;
+        if (num1 == "" && num2 == "" || num1 == "" || num2 == "") {
+            res = "Error: ingresa Datos Validos";
+            document.getElementById('resultado').value = res;
+        } else {
+            res = parseInt(num1) * parseInt(num2);
+            document.getElementById('resultado').value = res;
+        }
+    }
+
+
+    function resta() {
+        let num1 = document.getElementById('num1').value;
+        let num2 = document.getElementById('num2').value;
+        let res = 0;
+        if (num1 == "" && num2 == "" || num1 == "" || num2 == "") {
+            res = "Error: ingresa Datos Validos";
+            document.getElementById('resultado').value = res;
+        } else {
+            res = parseInt(num1) - parseInt(num2);
+            document.getElementById('resultado').value = res;
+        }
+    }
+
+
+    function suma() {
+        let num1 = document.getElementById('num1').value;
+        let num2 = document.getElementById('num2').value;
+        let res = 0;
+        if (num1 == "" && num2 == "" || num1 == "" || num2 == "") {
+            res = "Error: ingresa Datos Validos";
+            document.getElementById('resultado').value = res;
+        } else {
+            res = parseInt(num1) + parseInt(num2);
+            document.getElementById('resultado').value = res;
+        }
+    }
+
+
+    function division() {
+        let num1 = document.getElementById('num1').value;
+        let num2 = document.getElementById('num2').value;
+        let res = 0;
+        if (num1 == "" && num2 == "" || num1 == "" || num2 == "") {
+            res = "Error: ingresa Datos Validos";
+            document.getElementById('resultado').value = res;
+        } else {
+            res = parseInt(num1) / parseInt(num2);
+            document.getElementById('resultado').value = parseFloat(res).toFixed(2);
+        }
+    }
+
+</script>
+
+</html>
