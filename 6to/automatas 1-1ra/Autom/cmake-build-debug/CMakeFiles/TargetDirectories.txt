@@ -1,0 +1,3 @@
+C:/Users/luisv/Desktop/Autom/cmake-build-debug/CMakeFiles/Autom.dir
+C:/Users/luisv/Desktop/Autom/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/luisv/Desktop/Autom/cmake-build-debug/CMakeFiles/rebuild_cache.dir

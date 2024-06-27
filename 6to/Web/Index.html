@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Maquetacion Frameworks</title>
+
+    <!--Hoja de estilos -->
+    <link rel="stylesheet" type="text/css" href="Styles.css">
+</head>
+    <body>
+        <header id="header">
+            <div class="center">
+            <!-- LOGO-->
+                <div id="logo">
+                    <img src="C:\Users\luisv\Desktop\Web\logo.jpeg" class="app-logo" alt="logotipo"/>
+                    <span id="brand">
+                        <strong>TecMeet</strong>Comunica
+                    </span>
+                </div>
+            <!-- Menu-->
+
+                <nav id="menu">
+                    <ul>
+                        <li>
+                            <a href="#">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="#">Talleres</a>
+                        </li>
+                        <li>
+                            <a href="#">Conferencias</a>
+                        </li>
+                        <li>
+                            <a href="#">Calendario</a>
+                        </li>
+                        <li>
+                            <a href="#">Conecta</a>
+                        </li>
+
+                    </ul>
+                </nav>
+                <!--Limpiar flotados-->
+                <div class="clearfix"></div>
+            </div>
+        </header>
+
+        <div id="slider" class="slider-big">
+            <h1>Bienvenidos a TecMMet</h1>
+            <a href="#" class="btn-white">ir al blog</a>
+        </div>
+
+        <div class="center">
+            <section id="content">
+                <h2>Ultimos articulos</h2>
+
+                <script type="text/javascript">
+                        window.addEventListener("load", function(event){
+                        
+                        var template = document.getElementById("article-template");
+                        var articles = document.getElementById("article");
+
+                        for(var i=1; i<= 5; i++){
+                            var clonado = template.cloneNode(true);
+                            articles.appendChild(clonado);
+                        }
+                    });
+                </script>
+              
+                <!--Listado articulos-->
+                
+                <div id="article">
+                    <article class="article-item" id="article-template">
+                        <div class="image-wrap">
+                            <img src="https://conceptodefinicion.de/wp-content/uploads/2017/06/Conferencia.jpg" alt="Conferencia"/>
+                        </div>
+    
+                        <h2>Articulo de prueba</h2>
+                        <span class="date">
+                            hace 5 minutos
+                        </span>
+
+                        <a href="#"> Leer Mas</a>
+                    </article>
+                    <!--Añadir articulos via JS -->
+                </div>
+
+            </section>  
+
+            <aside id="sidebar">
+                <div id="nav-blog" class="sidebar-item">
+                    <h3>Puedes hacer esto</h3>
+                    <a href="#" class="btn btn-success">Crear articulo</a> 
+                </div>
+                <div id="Search" class="sidebar-item">
+                    <h3>Buscador</h3>
+                    <p>Encuentra el articulo que buscas </p>
+                    <form>
+                        <input type="text" name="search"/>
+                        <input type="submit" name="submit" value="Buscador" class="btn"/>
+                    </form>
+                </div>
+
+
+            </aside>
+
+        <div class="clearfix"></div>
+
+        </div>
+        <footer id="footer">
+            <div class="center">
+                <p>
+                    &copy; Master en frameworks para javascript de carlos Gomez
+                </p>
+            </div>
+
+        </footer>
+    </body>
+</html>
