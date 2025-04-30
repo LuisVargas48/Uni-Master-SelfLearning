@@ -1,4 +1,4 @@
 # Universidad
-Proyectos y creaciones hechas durante la universidad , que no estan en los demas repo
+Projects, programs, certifications during my Bachelors, Master and self learning
 
 
