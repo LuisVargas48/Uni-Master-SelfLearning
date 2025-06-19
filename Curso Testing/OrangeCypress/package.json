@@ -1,0 +1,16 @@
+{
+    "name": "demo_cypress1",
+    "version": "1.0.0",
+    "description": "Proyecto de pruebas de cypress QA",
+    "main": "index.js",
+    "scripts": {
+        "Chrome": "cypress run --spec  cypress/e2e/smoketestorange.cy.js  --browser chrome ",
+        "Firefox": "cypress run --spec cypress/e2e/smoketestorange.cy.js  --browser firefox ",
+        "test2": ""
+    },
+    "author": "Luis Alberto Vargas Glez",
+    "license": "ISC",
+    "dependencies": {
+        "cypress": "^13.9.0"
+    }
+}
