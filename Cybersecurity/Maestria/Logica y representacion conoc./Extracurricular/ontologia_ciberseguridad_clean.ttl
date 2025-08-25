@@ -1,0 +1,247 @@
+@prefix : <http://example.org/csec#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@base <http://example.org/csec#> .
+
+<> a owl:Ontology ;
+   rdfs:label "Ontologia de Amenazas Ciberneticas (demo)"@es ;
+   rdfs:comment "Esquema inspirado en MITRE ATT&CK para practicas academicas."@es .
+
+##########
+# Clases #
+##########
+
+:Entidad a owl:Class ; rdfs:label "Entidad"@es .
+
+:Actor a owl:Class ;
+  rdfs:subClassOf :Entidad ;
+  rdfs:label "Actor"@es ;
+  rdfs:comment "Grupo o individuo que realiza actividades maliciosas o pruebas."@es .
+
+:Campana a owl:Class ;
+  rdfs:subClassOf :Entidad ;
+  rdfs:label "Campana"@es .
+
+:Amenaza a owl:Class ;
+  rdfs:subClassOf :Entidad ;
+  rdfs:label "Amenaza/Incidente"@es .
+
+:Sistema a owl:Class ;
+  rdfs:subClassOf :Entidad ;
+  rdfs:label "Sistema/Activo"@es .
+
+:Vulnerabilidad a owl:Class ;
+  rdfs:subClassOf :Entidad ;
+  rdfs:label "Vulnerabilidad"@es .
+
+:Tactica a owl:Class ;
+  rdfs:label "Tactica"@es ;
+  rdfs:comment "Objetivo de alto nivel (por ejemplo, Acceso a credenciales, Movimiento lateral)."@es .
+
+:Tecnica a owl:Class ;
+  rdfs:label "Tecnica"@es ;
+  rdfs:comment "Como se logra una tactica (por ejemplo, volcado de credenciales)."@es ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onProperty :ejecutadaConHerramienta ;
+      owl:allValuesFrom :Herramienta
+  ] .
+
+:Subtecnica a owl:Class ;
+  rdfs:subClassOf :Tecnica ;
+  rdfs:label "Subtecnica"@es .
+
+:Herramienta a owl:Class ;
+  rdfs:subClassOf :Entidad ;
+  rdfs:label "Herramienta"@es .
+
+:Indicador a owl:Class ;
+  rdfs:subClassOf :Entidad ;
+  rdfs:label "Indicador (IOC/IOA)"@es .
+
+##########
+# Propiedades de objeto #
+##########
+
+:objetivaSistema a owl:ObjectProperty ;
+  rdfs:domain :Amenaza ;
+  rdfs:range :Sistema ;
+  rdfs:label "objetiva sistema"@es .
+
+:explotadaPorAmenaza a owl:ObjectProperty ;
+  rdfs:domain :Vulnerabilidad ;
+  rdfs:range :Amenaza ;
+  owl:inverseOf :explotaVulnerabilidad ;
+  rdfs:label "explotada por amenaza"@es .
+
+:explotaVulnerabilidad a owl:ObjectProperty ;
+  rdfs:domain :Amenaza ;
+  rdfs:range :Vulnerabilidad ;
+  rdfs:label "explota vulnerabilidad"@es .
+
+:atribuidaA a owl:ObjectProperty ;
+  rdfs:domain :Amenaza ;
+  rdfs:range :Actor ;
+  rdfs:label "atribuida a"@es .
+
+:parteDeCampana a owl:ObjectProperty ;
+  rdfs:domain :Amenaza ;
+  rdfs:range :Campana ;
+  rdfs:label "parte de campana"@es .
+
+:usaTecnica a owl:ObjectProperty ;
+  rdfs:domain :Amenaza ;
+  rdfs:range :Tecnica ;
+  rdfs:label "usa tecnica"@es .
+
+:alcanzaTactica a owl:ObjectProperty ;
+  rdfs:domain :Tecnica ;
+  rdfs:range :Tactica ;
+  rdfs:label "alcanza tactica"@es .
+
+:ejecutadaConHerramienta a owl:ObjectProperty ;
+  rdfs:domain :Tecnica ;
+  rdfs:range :Herramienta ;
+  rdfs:label "ejecutada con herramienta"@es .
+
+:subtecnicaDe a owl:ObjectProperty ;
+  rdfs:domain :Subtecnica ;
+  rdfs:range :Tecnica ;
+  rdfs:label "subtecnica de"@es .
+
+:observaIndicador a owl:ObjectProperty ;
+  rdfs:domain :Amenaza ;
+  rdfs:range :Indicador ;
+  rdfs:label "observa indicador"@es .
+
+##########
+# Propiedades de datos #
+##########
+
+:nombre a owl:DatatypeProperty ;
+  rdfs:domain :Entidad ;
+  rdfs:range xsd:string ;
+  rdfs:label "nombre"@es .
+
+:descripcion a owl:DatatypeProperty ;
+  rdfs:domain :Entidad ;
+  rdfs:range xsd:string ;
+  rdfs:label "descripcion"@es .
+
+:severidad a owl:DatatypeProperty ;
+  rdfs:domain :Amenaza ;
+  rdfs:range xsd:string ;
+  rdfs:label "severidad"@es .
+
+:fecha a owl:DatatypeProperty ;
+  rdfs:domain :Amenaza ;
+  rdfs:range xsd:dateTime ;
+  rdfs:label "fecha"@es .
+
+:mitreId a owl:DatatypeProperty ;
+  rdfs:domain :Tactica ;
+  rdfs:range xsd:string ;
+  rdfs:label "ID MITRE (opcional)"@es .
+
+:mitreIdTecnica a owl:DatatypeProperty ;
+  rdfs:domain :Tecnica ;
+  rdfs:range xsd:string ;
+  rdfs:label "ID MITRE tecnica"@es .
+
+:mitreIdSubtecnica a owl:DatatypeProperty ;
+  rdfs:domain :Subtecnica ;
+  rdfs:range xsd:string ;
+  rdfs:label "ID MITRE subtecnica"@es .
+
+:cveId a owl:DatatypeProperty ;
+  rdfs:domain :Vulnerabilidad ;
+  rdfs:range xsd:string ;
+  rdfs:label "ID CVE"@es .
+
+##########
+# Individuos de ejemplo #
+##########
+
+# Tacticas
+:TA0006 a :Tactica ;
+  :nombre "Acceso a credenciales"@es ;
+  :mitreId "TA0006" .
+
+:TA0008 a :Tactica ;
+  :nombre "Movimiento lateral"@es ;
+  :mitreId "TA0008" .
+
+# Tecnicas
+:T1003 a :Tecnica ;
+  :nombre "Volcado de credenciales del SO"@es ;
+  :mitreIdTecnica "T1003" ;
+  :alcanzaTactica :TA0006 ;
+  :ejecutadaConHerramienta :Mimikatz .
+
+:T1550 a :Tecnica ;
+  :nombre "Pass-the-Hash/Token"@es ;
+  :mitreIdTecnica "T1550" ;
+  :alcanzaTactica :TA0008 ;
+  :ejecutadaConHerramienta :Mimikatz .
+
+# Subtecnica
+:T1003_001 a :Subtecnica ;
+  :nombre "LSASS dump"@es ;
+  :mitreIdSubtecnica "T1003.001" ;
+  :subtecnicaDe :T1003 ;
+  :ejecutadaConHerramienta :Mimikatz .
+
+# Herramientas
+:Mimikatz a :Herramienta ;
+  :nombre "Mimikatz"@es ;
+  :descripcion "Herramienta para extraccion de credenciales de memoria."@es .
+
+:Metasploit a :Herramienta ;
+  :nombre "Metasploit"@es ;
+  :descripcion "Framework de explotacion y post-explotacion."@es .
+
+# Actores
+:APT29 a :Actor ;
+  :nombre "APT29 (ejemplo academico)"@es .
+
+# Sistemas
+:ServidorAD a :Sistema ;
+  :nombre "Controlador de Dominio Windows"@es .
+
+# Vulnerabilidades
+:CVE_2020_1472 a :Vulnerabilidad ;
+  :nombre "Zerologon (ejemplo)"@es ;
+  :cveId "CVE-2020-1472" .
+
+# Indicadores
+:IOC_hash_mimikatz a :Indicador ;
+  :nombre "Hash binario mimikatz.exe (ejemplo)"@es .
+
+# Amenaza/Incidente
+:Incidente_2025_08_12 a :Amenaza ;
+  :nombre "Intrusion a AD en laboratorio"@es ;
+  :descripcion "Simulacion de compromiso de AD usando Mimikatz."@es ;
+  :severidad "Alta" ;
+  :fecha "2025-08-12T10:00:00"^^xsd:dateTime ;
+  :atribuidaA :APT29 ;
+  :parteDeCampana :Campana_Lab ;
+  :usaTecnica :T1003 , :T1550 , :T1003_001 ;
+  :objetivaSistema :ServidorAD ;
+  :explotaVulnerabilidad :CVE_2020_1472 ;
+  :observaIndicador :IOC_hash_mimikatz .
+
+:Campana_Lab a :Campana ;
+  :nombre "Campana de practica SOC"@es .
+
+##########
+# Axiomas utiles #
+##########
+
+[] a owl:AllDisjointClasses ;
+   owl:members ( :Actor :Amenaza :Campana :Sistema :Vulnerabilidad :Tecnica :Tactica :Herramienta :Indicador ) .
+
+# Inversas
+:explotaVulnerabilidad owl:inverseOf :explotadaPorAmenaza .
+

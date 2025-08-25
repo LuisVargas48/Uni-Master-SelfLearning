@@ -1,0 +1,294 @@
+stderr: 
+Using TensorFlow backend.
+
+stdout: 
+Parsing pddl.....
+Parsing pddl..: [0.010s CPU, 0.002s wall-clock]
+Normalizing task.....
+Normalizing task..: [0.000s CPU, 0.000s wall-clock]
+Creating abstract structure graph.....
+Creating abstract structure graph..: [0.000s CPU, 0.001s wall-clock]
+Computing image from given graph...
+Using graph input file /tmp/tmp2g9znb1a/abstract-structure-graph.txt
+Using image output directory /tmp/tmp2g9znb1a
+Writing abstract structure graph grayscale 8bit image.....
+Grayscale color: 255
+Creating matrix for a graph with 71 nodes..
+Matrix size when created: 41472
+Matrix created, filling with values for edges..
+Performing bolding.
+Matrix size when 1s added: 41472
+Number of graph nodes: 72
+Shrink ratio: 3
+Shrinking matrix to size 24x24..
+Shrinked matrix size when created: 4608
+Writing grayscale image of size 128x128 ..
+Writing abstract structure graph grayscale 8bit image..: [0.330s CPU, 0.021s wall-clock]
+Done computing image! [0.360s CPU, 0.023s wall-clock]
+
+==== Computing an abstract structure graph from the lifted task description... ====
+
+
+==== Done computing an abstract structure graph. ====
+
+
+==== Selecting planner from learned model... ====
+
+Using json model file /workspace/delfi/dl_model/models/lifted/model.json
+Using h5 model file /workspace/delfi/dl_model/models/lifted/model.h5
+Loaded model from disk
+Chose seq-opt-symba-1
+
+==== Done selecting planner from learned model. ====
+
+
+==== Running the selected planner... ====
+
+Running planner, call string: ['/usr/bin/python', '/workspace/delfi/symba.py', 'seq-opt-symba-1', 'domain', 'problem', 'plan']
+1. Running translator
+Second argument is a file name: use two translator arguments.
+Parsing...
+Parsing: [0.000s CPU, 0.001s wall-clock]
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.000s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.000s CPU, 0.002s wall-clock]
+Preparing model... [0.000s CPU, 0.000s wall-clock]
+Generated 11 rules.
+Computing model... [0.000s CPU, 0.000s wall-clock]
+25 relevant atoms
+3 auxiliary atoms
+28 final queue length
+28 total queue pushes
+Completing instantiation... [0.000s CPU, 0.000s wall-clock]
+Instantiating: [0.000s CPU, 0.003s wall-clock]
+Computing fact groups...
+Finding invariants...
+15 initial candidates
+Finding invariants: [0.000s CPU, 0.001s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+5 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.000s CPU, 0.002s wall-clock]
+Building STRIPS to SAS dictionary... [0.010s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.000s CPU, 0.000s wall-clock]
+Translating task: [0.000s CPU, 0.000s wall-clock]
+0 implied effects removed
+1 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+2 propositions removed
+Detecting unreachable propositions: [0.000s CPU, 0.000s wall-clock]
+Translator variables: 7
+Translator derived variables: 0
+Translator facts: 14
+Translator mutex groups: 4
+Translator total mutex groups size: 8
+Translator operators: 5
+Translator task size: 49
+Translator peak memory: 27400 KB
+Writing output... [0.000s CPU, 0.000s wall-clock]
+Done! [0.010s CPU, 0.006s wall-clock]
+
+2. Running preprocessor
+Building causal graph...
+The causal graph is not acyclic.
+6 variables of 7 necessary
+0 of 4 mutex groups necessary.
+5 of 5 operators necessary.
+0 of 0 axiom rules necessary.
+Initializing mutex computation...
+Mutex computation initialized with 12 fluents.
+iteration for mutex detection and operator pruning
+Initialize m_index fw
+Initialized mvalues forward: reached=36, notReached=96, spurious=12
+Initialize m_ops fw
+Computing mutexes...
+Mutex computation finished with reached=124, notReached=8, spurious=12
+0 operators are spurious because were not triggered
+H^2 mutexes added fw: 8, unreachable: 0
+0 of 5 operators detected as spurious
+iteration for mutex detection and operator pruning
+Initialize m_index bw
+Init values regression
+Initialized mvalues backward: reached=36, notReached=88, spurious=20
+Initialize m_ops bw
+Computing mutexes...
+Mutex computation finished with reached=124, notReached=0, spurious=20
+0 operators are spurious because were not triggered
+H^2 mutexes added bw: 0, unreachable: 0
+0 of 5 operators detected as spurious
+Total mutex and disambiguation time: 7.1e-05
+4 of 4 mutex groups necessary.
+5 of 5 operators necessary.
+0 of 0 axiom rules necessary.
+Change id of operators: 5
+Change id of axioms: 0
+Change id of mutexes
+Change id of goals
+Change id of initial state
+Remove unreachable facts from variables: 6
+4 of 4 mutex groups necessary.
+5 of 5 operators necessary.
+0 of 0 axiom rules necessary.
+Updating causal graph and pruning unnecessary facts
+6 variables of 6 of 7 necessary
+The causal graph is not acyclic.
+4 of 4 mutex groups necessary.
+5 of 5 operators necessary.
+0 of 0 axiom rules necessary.
+Ordering: 6
+previous variable order: var4 - var3 - var2 - var0 - var1 - var6 - : 6
+New value: 6
+new variable order: var4 - var3 - var2 - var0 - var1 - var6 - : 6
+Building domain transition graphs...
+solveable in poly time 0
+Building successor generator...
+Preprocessor facts: 12
+Preprocessor derived variables: 0
+Preprocessor task size: 45
+Writing output...
+Number of vars: 6
+weighted 6
+done
+
+
+3. Running search
+Dispatcher selected state size 1.
+This is a unit task.
+Simplifying transitions... done!
+  Max num abstractions: 100
+   Abs TRs Strategy: ind_tr_shrink
+   PH time: 500, memory: 3e+09
+   Relax time: 10000, nodes: 100000000
+   Ratio relax time: 0.75, nodes: 0.75
+   Perimeter Abstractions: yes
+   Relax dir: bd
+   ShouldAbstract ratio: 0
+CUDD Init: nodes=16000000 cache=16000000 max_memory=0
+TR(time=60000, nodes=100000)
+Mutex(time=60000, nodes=100000, type=edeletion)
+Disj(nodes=2147483647)
+Estimation: min_time(1000) time_penalty +(1000)*(2) nodes_penalty +(1000)*(2)
+Pop(time=2000, nodes=1000000)
+MaxStep(time=30000, nodes=10000000)
+Ratio useful: 0
+   Min alloted time: 60000 nodes: 10000000
+   Max alloted time: 60000 nodes: 15000000
+   Mult alloted time: 2 nodes: 2
+   Ratio after relax: 0.8
+  Max num abstractions: 100
+   Abs TRs Strategy: ind_tr_shrink
+   PH time: 500, memory: 3e+09
+   Relax time: 10000, nodes: 100000000
+   Ratio relax time: 0.75, nodes: 0.75
+   Perimeter Abstractions: yes
+   Relax dir: bd
+   ShouldAbstract ratio: 0
+CUDD Init: nodes=16000000 cache=16000000 max_memory=0
+TR(time=60000, nodes=100000)
+Mutex(time=60000, nodes=100000, type=edeletion)
+Disj(nodes=2147483647)
+Estimation: min_time(1000) time_penalty +(1000)*(2) nodes_penalty +(1000)*(2)
+Pop(time=2000, nodes=1000000)
+MaxStep(time=30000, nodes=10000000)
+Ratio useful: 0
+   Min alloted time: 60000 nodes: 10000000
+   Max alloted time: 60000 nodes: 15000000
+   Mult alloted time: 2 nodes: 2
+   Ratio after relax: 0.8
+  Max num abstractions: 100
+   Abs TRs Strategy: ind_tr_shrink
+   PH time: 500, memory: 3e+09
+   Relax time: 10000, nodes: 100000000
+   Ratio relax time: 0.75, nodes: 0.75
+   Perimeter Abstractions: yes
+   Relax dir: bd
+   ShouldAbstract ratio: 0
+CUDD Init: nodes=16000000 cache=16000000 max_memory=0
+TR(time=60000, nodes=100000)
+Mutex(time=60000, nodes=100000, type=edeletion)
+Disj(nodes=2147483647)
+Estimation: min_time(1000) time_penalty +(1000)*(2) nodes_penalty +(1000)*(2)
+Pop(time=2000, nodes=1000000)
+MaxStep(time=30000, nodes=10000000)
+Ratio useful: 0
+   Min alloted time: 60000 nodes: 10000000
+   Max alloted time: 60000 nodes: 15000000
+   Mult alloted time: 2 nodes: 2
+   Ratio after relax: 0.8
+Initializing Symbolic Variables
+Num variables: 6 => 6
+Initialize Symbolic Manager(12, 1333333, 16000000, 0)
+Generating binary variables
+Generating predicate BDDs
+Symbolic Variables... Done.
+CUDD Init: nodes=16000000 cache=16000000 max_memory=0
+TR(time=60000, nodes=100000)
+Mutex(time=60000, nodes=100000, type=edeletion)
+Disj(nodes=2147483647)
+Estimation: min_time(1000) time_penalty +(1000)*(2) nodes_penalty +(1000)*(2)
+Pop(time=2000, nodes=1000000)
+MaxStep(time=45000, nodes=10000000)
+Ratio useful: 0
+   Min alloted time: 60000 nodes: 10000000
+   Max alloted time: 60000 nodes: 15000000
+   Mult alloted time: 2 nodes: 2
+   Ratio after relax: 0.8
+SymBA* 
+   Search dir: bd
+   Time force original: 1500 seconds
+Conducting symbolic search Operator cost: 0 (real) bound = 2147483647
+Initialize abstraction hierarchy
+Mutex BDD BW Size(100000): 5
+Mutex BDD FW Size(100000):
+TRs cost=1 (1):  39
+BOUND: 1 < 2147483647, total time: 0.12s
+>> Step: original fw f=1, g=0
+BOUND: 2 < 2147483647, total time: 0.12s
+>> Step: original bw f=2, g=0
+BOUND: 3 < 2147483647, total time: 0.12s
+>> Step: original fw f=3, g=1
+BOUND: 4 < 2147483647, total time: 0.12s
+>> Step: original fw f=4, g=2
+BOUND: 5 < 2147483647, total time: 0.12s
+>> Step: original fw f=5, g=3
+Solution found with cost 5 total time: 0.12s
+BOUND: 5 < 5, total time: 0.12s
+Actual search time: 0s [t=0.12s]
+notificar-csirt  (1)
+cerrar-puerto m1 p22 (1)
+cerrar-puerto m1 p21 (1)
+aislar-maquina m1 (1)
+restaurar-maquina m1 (1)
+Plan length: 5 step(s).
+Plan cost: 5
+Expanded 0 state(s).
+Reopened 0 state(s).
+Evaluated 0 state(s).
+Evaluations: 0
+Generated 0 state(s).
+Dead ends: 0 state(s).
+Search space hash size: 0
+Search space hash bucket count: 193
+Search time: 0s
+Total time: 0.12s
+Solution found.
+Peak memory: 244744 KB
+
+Overall time: [0.340s CPU, 0.357s wall-clock]
+
+==== Done running the selected planner. ====
