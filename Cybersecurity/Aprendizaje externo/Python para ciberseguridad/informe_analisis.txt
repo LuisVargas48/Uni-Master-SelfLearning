@@ -1,0 +1,8 @@
+--- INFORME DE ANÁLISIS DE TRÁFICO ---
+
+[!] [Paquete #15] Tráfico FTP (Puerto 21) detectado | Origen: 127.0.0.1:42066 -> Destino: 127.0.0.1:21
+[!] [Paquete #16] Tráfico FTP (Puerto 21) detectado | Origen: 127.0.0.1:21 -> Destino: 127.0.0.1:42066
+[¡¡ALERTA DE ESCANEO!!] Posible SYN Scan detectado | Origen: 127.0.0.1 -> Destino: 127.0.0.1 | Puertos únicos escaneados: 1000
+[*] [Paquete #45] Tráfico HTTP (Puerto 80) detectado | Origen: 127.0.0.1:42066 -> Destino: 127.0.0.1:80
+[*] [Paquete #46] Tráfico HTTP (Puerto 80) detectado | Origen: 127.0.0.1:80 -> Destino: 127.0.0.1:42066
+[*] [Paquete #47] Tráfico HTTP (Puerto 80) detectado | Origen: 127.0.0.1:42066 -> Destino: 127.0.0.1:80
