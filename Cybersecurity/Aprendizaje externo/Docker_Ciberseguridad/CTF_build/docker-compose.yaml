@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  ctf-web:
+    build: .
+    ports:
+      - "8080:5000"
+    environment:
+      - FLAG=CTF{D0ck3r_C0nt41n3r_H4ck3d}
