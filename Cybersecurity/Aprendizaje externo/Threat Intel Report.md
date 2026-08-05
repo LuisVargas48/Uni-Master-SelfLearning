@@ -1,4 +1,4 @@
-**Threat Intelligence Report: Desmantelando una Red Global de Phishing de Retail**
+# Threat Intelligence Report: Desmantelando una Red Global de Phishing de Retail 
 
 Autor: Luis Alberto Vargas Gonzalez
 
@@ -9,14 +9,14 @@ Técnicas utilizadas: OSINT, DNS Enumeration, SSL/TLS Forensics, Infrastructure 
 
 ----------------------------------------------------------------------------------------------------
 
-**📌 Resumen Ejecutivo**
+## 📌 Resumen Ejecutivo
 
 Investigación proactiva y análisis forense de un dominio fraudulento que suplantaba a la marca oficial Bose Corporation en México (bosesmexico.com.mx). A través de técnicas de reconocimiento pasivo y evasión de proxy, se logró desenmascarar la infraestructura real del atacante (Origin IP). El análisis reveló que este dominio no era un incidente aislado, sino parte de una red criminal masiva alojada en un servidor con arbitraje jurisdiccional, operando más de 70 tiendas falsas de marcas globales de retail. Se ejecutaron acciones de Takedown para neutralizar la amenaza.
 
 
 --------------------------------------------------------------------------------------------
 
-**🔍 1. Reconocimiento Inicial y Análisis de Dominio (WHOIS)**
+## 🔍 1. Reconocimiento Inicial y Análisis de Dominio (WHOIS)
 
 La investigación comenzó tras detectar tácticas de SEO Poisoning y Typosquatting en motores de búsqueda. Se analizaron los dominios fraudulentos descubriendo un patrón claro de registro masivo:
 
@@ -38,7 +38,7 @@ Titularidad: Identidades físicas registradas en Alemania ("egger james", "pfeif
 
 -----------------------------------------------------------------------------------------------------------------------------------
 
-**🌐 2. Análisis de Infraestructura y Evasión (Uncloaking)**
+## 🌐 2. Análisis de Infraestructura y Evasión (Uncloaking)
 
 Los atacantes utilizaron la red Anycast de Cloudflare para ocultar la ubicación real de su servidor y obtener certificados SSL gratuitos para generar falsa legitimidad.
 
@@ -60,7 +60,7 @@ Conclusión de Red: El atacante utiliza Bulletproof Hosting con arbitraje jurisd
 
 ---------------------------------------------------------------------------------------------
 
-**🔐 3. Análisis Criptográfico (CT Logs)**
+## 🔐 3. Análisis Criptográfico (CT Logs)
 
 Se consultaron las bitácoras de Certificate Transparency (crt.sh). El análisis evidenció la automatización de la campaña:
 
@@ -79,7 +79,7 @@ Se detectaron tácticas de Drop Catching (registro de dominios abandonados en el
 ------------------------------------------------------------------------------------------------------------
 
 
-**⚙️ 4. Fingerprinting y Escala de la Operación**
+## ⚙️ 4. Fingerprinting y Escala de la Operación
 
 Se realizó un escaneo pasivo de la IP de origen (194.26.231.133) utilizando motores de búsqueda de infraestructura (Shodan/Censys) para mapear la superficie de ataque, revelando graves fallos en la seguridad operacional (OPSEC) del cibercriminal:
 
@@ -102,7 +102,7 @@ Impacto Global: La red clona tiendas e intercepta pagos de clientes de marcas in
 
 -----------------------------------------------------------------------------------------------------------
 
-**🛑 5. Respuesta a Incidentes (Takedown Actions)**
+## 🛑 5. Respuesta a Incidentes (Takedown Actions)
 
 Con base en la evidencia irrefutable recolectada y preservando una estricta seguridad operacional (reportes anónimos para evitar represalias), se ejecutó el siguiente protocolo de erradicación:
 
@@ -117,7 +117,7 @@ Registrador de DNS: Se envió un Takedown Request a abuse@registrar.eu detalland
 --------------------------------------------------------------------------------------------------------------
 
 
-**🚨 Indicadores de Compromiso (IoCs)**
+## 🚨 Indicadores de Compromiso (IoCs)
 
 
 Tipo    Indicador             Descripción
